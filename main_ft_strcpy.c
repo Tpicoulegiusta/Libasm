@@ -1,0 +1,20 @@
+#include <string.h>
+#include <stdio.h>
+
+
+extern char *ft_strcpy(char *dest, const char *src); //rdi, rsi, return = rax//
+
+
+int main(void)
+{
+	const char *src = "string\0";
+	char dest[10];
+
+
+	printf("dest avant: %s\n", dest);
+	ft_strcpy(dest, src);
+	printf("dest apres: %s\n", dest);
+
+
+	return(0);
+}
