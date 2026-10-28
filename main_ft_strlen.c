@@ -6,7 +6,10 @@ extern size_t ft_strlen(const char *string);
 
 int main (void)
 {
-	const char *string = "Isibio\0";
+	// const char *string = "\0";
+	// const char *string = "Is\0";
+	// const char *string = "Isibio\0";
+	const char *string = "Isibio0o0o0o0o0o0o0o0o0o0o0o0o0oo0o\0";
 	size_t length = ft_strlen(string); //mine strlen
 
 

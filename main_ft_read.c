@@ -16,13 +16,13 @@ int main (void)
 	errno = 0;
 	printf("Errno avant mon ft_read = %d\n", errno);
 
-	my_read = ft_read(0, buffer, sizeof(buffer) - 1);
+	my_read = ft_read(12, buffer, sizeof(buffer) - 1);
 	printf("Errno apres mon ft_read = %d\n", errno);
 
 	errno = 0;
 	printf("Errno avant le vrai read = %d\n", errno);
 
-	real_read = read(0, buffer, sizeof(buffer) - 1);
+	real_read = read(12, buffer, sizeof(buffer) - 1);
 	printf("Errno apres le vrai read = %d\n", errno);
 
 	printf("Octets lu par ft_read : %zd\n", my_read);

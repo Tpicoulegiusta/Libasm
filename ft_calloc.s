@@ -36,7 +36,7 @@ section .text
 	dec rcx 					; On decrement rcx;
 	jnz .zero 					; Tant que rcx a des octets on continue;
 
-	.return
+	.return:
 	ret 						; Si tous se passe bien on return noramal;
 
 

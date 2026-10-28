@@ -16,6 +16,7 @@ int main (void)
 	written = ft_write(12, "Hello\n", 6);
 	printf("Errno apres le ft_write = %d\n", errno);
 	
+
 	errno = 0;
 	printf("Errno avant le vrai write = %d\n", errno);
 	
@@ -27,3 +28,4 @@ int main (void)
 
 	return (0);
 }
+
