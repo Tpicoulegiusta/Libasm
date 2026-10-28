@@ -9,13 +9,12 @@ bits 64
 section .text
 	global ft_strcpy
 	ft_strcpy:
-	xor r8, r8 ;on met le compteur a 0;
 	mov rax, rdi ;on stock le debut de l'adresse de la chaine a retourner;
 
 	.looping:
-	mov [rdi], r9b 
-	mov r9b, [rsi]
-	cmp byte [rsi], 0 ;compare l'octet en memoire a l'adresse rsi + r8;
+	mov r9b, [rsi] 		; On met l'octet de src dans r9b;
+	mov [rdi], r9b 		; On l'ecrit dans dest (rdi);
+	test r9b, r9b 		; On teste si l'octet vaut 0;
 	je .return
 
 	inc rsi

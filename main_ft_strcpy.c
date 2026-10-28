@@ -15,6 +15,10 @@ int main(void)
 	ft_strcpy(dest, src);
 	printf("dest apres: %s\n", dest);
 
+	// printf("dest avant: %s\n", dest);
+	// strcpy(dest, src);
+	// printf("dest apres: %s\n", dest);
+
 
 	return(0);
 }

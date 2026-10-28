@@ -13,9 +13,8 @@ section .text
 	ft_calloc:
 	mov rax, rdi 				; on met rdi dans rax;
 	mul rsi 					; On multiplie rax et rsi et on le met dans rax, ici on ne peut pas utiliser deux registre 
-	 							; de memoire pour le faire donc on utilise rax;
-	test rdx, rdx 				; On regarde la valeur de rdx;
-	jc .return	 				; jump if overflow(carry flag), le produit depasse 64bits;
+	 							; de memoire pour le faire donc on utilise rax, mul utilise rax en premier facteur;
+	jc .error	 				; jump if overflow(carry flag), le produit depasse 64bits;
 							
 
 	push rax 					; On securise la taille totale sur la pile;
@@ -27,6 +26,9 @@ section .text
 
 
 	mov r8, rax 				; On stock dans r8 l'addresse de depart;
+	test rcx, rcx 				; On regarde la taille, si 0, rien a mettre;
+	jz .return
+
 
 	.zero:
 	mov byte [r8], 0 			; On ecrit l'octet 0 a l'adresse dans r8
@@ -34,10 +36,11 @@ section .text
 	dec rcx 					; On decrement rcx;
 	jnz .zero 					; Tant que rcx a des octets on continue;
 
+	.return
 	ret 						; Si tous se passe bien on return noramal;
 
 
-	.return:
+	.error:
 	xor rax, rax 				; On met rax a 0 pour return la bonne valeur;
 	ret 						; Ici on return lorsque ca se passe mal;
 

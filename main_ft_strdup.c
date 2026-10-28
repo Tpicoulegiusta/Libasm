@@ -9,8 +9,8 @@ extern char *ft_strdup(const char *s);
 int main (void)
 {
 
-	const char str[] = "Caca";
-	const char str_2[] = "Caca";
+	const char str[] = "caca";
+	const char str_2[] = "caca";
 
 	char *result = ft_strdup(str);
 
