@@ -20,6 +20,8 @@ int main (void)
 
 	printf("Result wize real one strdup = %s\n", result_2);
 
+	free(result);
+	free(result_2);
 
 	return(0);
 }

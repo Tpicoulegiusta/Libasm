@@ -13,13 +13,13 @@ int main(void)
 	char dest[27];
 
 
-	// printf("dest avant: %s\n", dest);
-	// ft_strcpy(dest, src);
-	// printf("dest apres: %s\n", dest);
-
 	printf("dest avant: %s\n", dest);
-	strcpy(dest, src);
+	ft_strcpy(dest, src);
 	printf("dest apres: %s\n", dest);
+
+	// printf("dest avant: %s\n", dest);
+	// strcpy(dest, src);
+	// printf("dest apres: %s\n", dest);
 
 
 	return(0);

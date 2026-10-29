@@ -19,7 +19,7 @@ int main(void)
 	nmemb = 0;
 	nmemb = ~nmemb;
 
-	tab = calloc(nmemb, sizeof(int));
+	tab = ft_calloc(nmemb, sizeof(int));
 
 	if (tab == NULL)
 	{
@@ -39,6 +39,7 @@ int main(void)
 			return (1);
 		}
 	}
+
 	// printf("Errno = %d\n", errno);
 	free(tab);
 	return(0);
