@@ -11,7 +11,7 @@ int main (void)
 {
 	ssize_t written;
 	ssize_t written_2;
-	// int fd;
+	int fd;
 
 	errno = 0;
 	printf("Errno avant mon ft_write= %d\n", errno);
@@ -30,27 +30,27 @@ int main (void)
 	printf("Octets ecrits par write levrai : %zd\n", written_2);
 
 
-	// fd = open("test_write.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
-	// if(fd == -1)
-	// {
-	// 	printf("Erreur open\n");
-	// 	return (1);
-	// }
-	// printf("fd ouvert = %d\n", fd);
+	fd = open("test_write.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	if(fd == -1)
+	{
+		printf("Erreur open\n");
+		return (1);
+	}
+	printf("fd ouvert = %d\n", fd);
 
-	// errno = 0;
-	// written = ft_write(fd, "Hello de ft_write\n", 18);
-	// printf("Errno apres le ft_write = %d\n", errno);
+	errno = 0;
+	written = ft_write(fd, "Hello de ft_write\n", 18);
+	printf("Errno apres le ft_write = %d\n", errno);
 
-	// errno = 0;
-	// written_2 = write(fd, "Hello de write\n", 15);
-	// printf("Errno apres le write = %d\n", errno);
+	errno = 0;
+	written_2 = write(fd, "Hello de write\n", 15);
+	printf("Errno apres le write = %d\n", errno);
 
-	// close (fd);
+	close (fd);
 
-	// printf("Octets ecrits par ft_write : %zd\n", written);
-	// printf("Octets ecrits par write levrai : %zd\n", written_2);
-	// //cat test_write.txt
+	printf("Octets ecrits par ft_write : %zd\n", written);
+	printf("Octets ecrits par write levrai : %zd\n", written_2);
+	//cat test_write.txt
 
 	return (0);
 }

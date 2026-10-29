@@ -48,7 +48,7 @@ int main (void)
 	lseek(fd, 0, SEEK_SET);
 
 	errno = 0;
-	real_read = ft_read(fd, buffer, 19);
+	real_read = read(fd, buffer, 19);
 	printf("Errno apres le vrai read = %d\n", errno);
 	if (my_read >= 0)
 		buffer[my_read] = '\0';
@@ -58,10 +58,6 @@ int main (void)
 
 	printf("Octets lu par ft_read = %zd\n", my_read);
 	printf("Octets lu par read = %zd\n", real_read);
-	
-
-
-	
 
 
 	return (0);
