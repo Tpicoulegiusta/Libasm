@@ -2,9 +2,6 @@
 ;size = rsi;
 ;valeur de retour = rax;
 
-extern malloc
-
-
 bits 64
 
 extern malloc

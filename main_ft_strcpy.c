@@ -12,10 +12,8 @@ int main(void)
 	// char dest[10];
 	char dest[28];
 
-
-	printf("dest avant: %s\n", dest);
 	ft_strcpy(dest, src);
-	printf("dest apres: %s\n", dest);
+	printf("dest : %s\n", dest);
 
 	// printf("dest avant: %s\n", dest);
 	// strcpy(dest, src);
