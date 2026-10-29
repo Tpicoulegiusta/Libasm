@@ -50,8 +50,8 @@ int main (void)
 	errno = 0;
 	real_read = read(fd, buffer, 19);
 	printf("Errno apres le vrai read = %d\n", errno);
-	if (my_read >= 0)
-		buffer[my_read] = '\0';
+	if (real_read >= 0)
+		buffer[real_read] = '\0';
 	printf("Lu par read levrai = \"%s\"\n", buffer);
 
 	close(fd);
