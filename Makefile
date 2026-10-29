@@ -33,7 +33,7 @@ $(NAME): $(OBJS)
 	$(NASM) $(NASMFLAGS) $< -o $@
 
 $(MAINS): %: %.c $(NAME)
-	$(CC) $(CFLAGS) $< -L -lasm -o $@
+	$(CC) $(CFLAGS) $< -L. -lasm -o $@
 
 clean:
 	rm -f $(OBJS)
