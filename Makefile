@@ -1,3 +1,4 @@
+	NAME = libasm.a
 
 	CC = gcc
 	NASM = nasm
@@ -23,19 +24,22 @@
 			main_ft_read \
 			main_ft_calloc
 
-all: $(MAINS)
+all: $(NAME) $(MAINS)
+
+$(NAME): $(OBJS)
+	ar rcs $(NAME) $(OBJS)
 
 %.o: %.s
 	$(NASM) $(NASMFLAGS) $< -o $@
 
-$(MAINS): %: %.c $(OBJS)
-	$(CC) $(CFLAGS) $< $(OBJS) -o $@
+$(MAINS): %: %.c $(NAME)
+	$(CC) $(CFLAGS) $< -L -lasm -o $@
 
 clean:
 	rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(MAINS)
+	rm -f $(NAME) $(MAINS)
 
 re:
 	$(MAKE) fclean
