@@ -10,7 +10,7 @@ int main(void)
 	// const char *src = "\0";
 	const char *src = "veryloooooooooooooongstring\0";
 	// char dest[10];
-	char dest[27];
+	char dest[28];
 
 
 	printf("dest avant: %s\n", dest);

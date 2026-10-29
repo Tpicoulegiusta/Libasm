@@ -7,6 +7,9 @@ extern malloc
 
 bits 64
 
+extern malloc
+extern __errno_location
+ENOMEM equ 12
 
 section .text
 	global ft_calloc
@@ -41,6 +44,10 @@ section .text
 
 
 	.error:
-	xor rax, rax 				; On met rax a 0 pour return la bonne valeur;
-	ret 						; Ici on return lorsque ca se passe mal;
+	sub rsp, 8 							; On aligne la pile avant le call;
+	call __errno_location wrt ..plt 	; Errno etant propre a chaque thread on demande la location, elle sera stocke dans rax;
+	mov dword [rax], ENOMEM				; On copie 4octet (un int(dword)) a l'adresse contenue par rax, c'est a dire ENOMEM(12);
+	add rsp, 8 							; On remet la pile apres le call;
+	xor rax, rax 						; On met rax a 0 pour return la bonne valeur;
+	ret 								; Ici on return lorsque ca se passe mal;
 
