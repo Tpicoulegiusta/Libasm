@@ -8,20 +8,33 @@ extern char *ft_strdup(const char *s);
 
 int main (void)
 {
+	{
+		const char str[] = "LOngggggggggggggggggggggstring\0";
+		const char str_2[] = "LOngggggggggggggggggggggstring\0";
 
-	const char str[] = "LOngggggggggggggggggggggstring";
-	const char str_2[] = "LOngggggggggggggggggggggstring";
+		char *result = ft_strdup(str);
+		printf("Result wiz mine ft_strdup = \"%s\"\n", result);
+		free(result);
 
-	char *result = ft_strdup(str);
+		char *result_2 = strdup(str_2);
+		printf("Result wize real one strdup = \"%s\"\n", result_2);
+		free(result_2);
+	}
+	printf("\n");
 
-	printf("Result wiz mine ft_strdup = %s\n", result);
 
-	char *result_2 = strdup(str_2);
+	{
+		const char str[] = "\0";
+		const char str_2[] = "\0";
 
-	printf("Result wize real one strdup = %s\n", result_2);
+		char *result = ft_strdup(str);
+		printf("Result wiz mine ft_strdup = \"%s\"\n", result);
+		free(result);
 
-	free(result);
-	free(result_2);
+		char *result_2 = strdup(str_2);
+		printf("Result wize real one strdup = \"%s\"\n", result_2);
+		free(result_2);
+	}
 
 	return(0);
 }

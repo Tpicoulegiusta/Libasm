@@ -28,8 +28,29 @@ int main (void)
 
 	printf("Octets ecrits par ft_write : %zd\n", written);
 	printf("Octets ecrits par write levrai : %zd\n", written_2);
+	printf("\n");
 
 
+	//----------------------------------------------
+	errno = 0;
+	printf("Errno avant mon ft_write= %d\n", errno);
+
+	written = ft_write(1, "Hello\n", 6);
+	printf("Errno apres le ft_write = %d\n", errno);
+	
+
+	errno = 0;
+	printf("Errno avant le vrai write = %d\n", errno);
+	
+	written_2 = write(1, "Hello\n", 6);
+	printf("Errno apres le vrai write = %d\n", errno);
+
+	printf("Octets ecrits par ft_write : %zd\n", written);
+	printf("Octets ecrits par write levrai : %zd\n", written_2);
+	printf("\n");
+
+
+	//----------------------------------------------
 	fd = open("test_write.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if(fd == -1)
 	{
@@ -43,7 +64,7 @@ int main (void)
 	printf("Errno apres le ft_write = %d\n", errno);
 
 	errno = 0;
-	written_2 = write(fd, "Hello de write\n", 15);
+	written_2 = write(fd, "Hello de    write\n", 18);
 	printf("Errno apres le write = %d\n", errno);
 
 	close (fd);
